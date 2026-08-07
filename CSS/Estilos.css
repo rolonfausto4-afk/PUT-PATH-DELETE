@@ -1,0 +1,49 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Formulario{
+    max-width: 70%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    gap: 20px;
+    overflow: auto;
+    align-items: center;
+}
+
+.Formulario Label{
+    color: #0f0;
+}
+
+.Formulario__Input{
+    border-radius: 5px;
+    margin: 20px 0;
+    border: #006e00 solid 2px;
+    background-color: transparent;
+    color: #0f0;
+    outline: none;
+    padding-left: 10px;
+    width: 90%;
+    height: 20px ;
+}
+
+.Formulario__Input::Placeholder{
+    color: #0f08;
+}
+
+.Input--Enviar{
+    background-color: #006e00 ;
+    border-color: #0a0;
+    height: 40px;
+    width: 50%;
+    color: #afa;
+    font-size: 15px;
+}
+.Input--Enviar:hover{
+    background-color: #008f00;
+}
