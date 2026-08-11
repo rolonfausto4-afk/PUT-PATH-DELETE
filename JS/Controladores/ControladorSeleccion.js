@@ -19,45 +19,73 @@ export default class ControladorSeleccion{
         this.Vista.ResetearCamposSeleccion();
     }
 
-
     async ProcesarPut(){ //De todos Valido,Datos,Mensaje en error estatus
-        const InfoNombre = this.Vista.CampoSeleccionar[0].value;
-        const InfoCorreo = this.Vista.CampoSeleccionar[1].value;
+        try {
+            const InfoNombre = this.Vista.CampoSeleccionar[0].value;
+            const InfoCorreo = this.Vista.CampoSeleccionar[1].value;
 
-        const InfoJson = await this.Modelo.HacerPut(InfoNombre, InfoCorreo);
+            const InfoRespuesta = await this.Modelo.HacerPut(InfoNombre, InfoCorreo);
 
-        this.Vista.AplicarMensaje(InfoJson.Valido ? InfoJson.Mensaje : `${InfoJson.Mensaje} : ${InfoJson.Estado}`);
+            this.Vista.AplicarMensaje(InfoRespuesta.Estado >= 200 && InfoRespuesta.Estado < 300  ? "Datos correctamente procesados" : `Algo ha fallado : ${InfoRespuesta.Estado}`);
 
-        this.Modelo.AplicarSesion(InfoJson.Datos);
+            this.Modelo.AplicarSesion(InfoRespuesta.Estado >= 200 && InfoRespuesta.Estado < 300  ? InfoRespuesta.Datos : "Falló");
 
-        const InfoMensajeJson = JSON.stringify(this.Modelo.ObtenerSesion(), null, 2);
+            const InfoMensajeJson = JSON.stringify(this.Modelo.ObtenerSesion(), null, 2);
 
-        this.Vista.AplicarJson(InfoMensajeJson);
+            this.Vista.AplicarJson(InfoMensajeJson);
+            
+        } catch (Error) {
+            this.Vista.AplicarMensaje(`Ha ocurrido un Error no previsto : ${Error}`);
+
+            const InfoMensajeJson = JSON.stringify("Error");
+
+            this.Vista.AplicarJson(InfoMensajeJson);
+        }
     }
 
     async ProcesarPatch(){
-        const InfoNombre = this.Vista.CampoSeleccionar[0].value;
+        try {
+            const InfoNombre = this.Vista.CampoSeleccionar[0].value;
 
-        const InfoJson = await this.Modelo.HacerPatch(InfoNombre);
+            const InfoRespuesta = await this.Modelo.HacerPatch(InfoNombre);
 
-        this.Vista.AplicarMensaje(InfoJson.Valido ? InfoJson.Mensaje : `${InfoJson.Mensaje} : ${InfoJson.Estado}`);
+            this.Vista.AplicarMensaje(InfoRespuesta.Estado >= 200 && InfoRespuesta.Estado < 300  ? "Datos correctamente procesados" : `Algo ha fallado : ${InfoRespuesta.Estado}`);
 
-        this.Modelo.AplicarSesion(InfoJson.Datos);
+            this.Modelo.AplicarSesion(InfoRespuesta.Estado >= 200 && InfoRespuesta.Estado < 300  ? InfoRespuesta.Datos : "Falló");
 
-        const InfoMensajeJson = JSON.stringify(this.Modelo.ObtenerSesion(), null, 2);
+            const InfoMensajeJson = JSON.stringify(this.Modelo.ObtenerSesion(), null, 2);
 
-        this.Vista.AplicarJson(InfoMensajeJson);
+            this.Vista.AplicarJson(InfoMensajeJson);
+            
+        } catch (Error) {
+            this.Vista.AplicarMensaje(`Ha ocurrido un Error no previsto : ${Error}`);
+
+            const InfoMensajeJson = JSON.stringify("Error");
+
+            this.Vista.AplicarJson(InfoMensajeJson);
+        }
     }
 
     async ProcesarDelete(){
-        const InfoJson = await this.Modelo.HacerDelete();
+        try {
+            const InfoNombre = this.Vista.CampoSeleccionar[0].value;
 
-        this.Vista.AplicarMensaje(InfoJson.Valido ? InfoJson.Mensaje : `${InfoJson.Mensaje} : ${InfoJson.Estado}`);
+            const InfoRespuesta = await this.Modelo.HacerDelete(InfoNombre);
 
-        this.Modelo.AplicarSesion(InfoJson.Datos);
+            this.Vista.AplicarMensaje(InfoRespuesta.Estado >= 200 && InfoRespuesta.Estado < 300  ? "Datos correctamente procesados" : `Algo ha fallado : ${InfoRespuesta.Estado}`);
 
-        const InfoMensajeJson = JSON.stringify(this.Modelo.ObtenerSesion(), null, 2);
+            this.Modelo.AplicarSesion(InfoRespuesta.Estado >= 200 && InfoRespuesta.Estado < 300  ? InfoRespuesta.Datos : "Falló");
 
-        this.Vista.AplicarJson(InfoMensajeJson);
+            const InfoMensajeJson = JSON.stringify(this.Modelo.ObtenerSesion(), null, 2);
+
+            this.Vista.AplicarJson(InfoMensajeJson);
+            
+        } catch (Error) {
+            this.Vista.AplicarMensaje(`Ha ocurrido un Error no previsto : ${Error}`);
+
+            const InfoMensajeJson = JSON.stringify("Error");
+
+            this.Vista.AplicarJson(InfoMensajeJson);
+        }
     }
 }

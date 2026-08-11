@@ -4,8 +4,8 @@ import ControladorSeleccion from "./Controladores/ControladorSeleccion.js";
 import ModeloUsuario from "./Modelos/ModeloUsuario.js";
 import Vista from "./Vista/Vista.js";
 
-const ObjVista = new Vista();
 const ObjModelo = new ModeloUsuario();
+const ObjVista = new Vista(JSON.stringify(ObjModelo.ObtenerSesion(), null, 2));
 
 const ObjControladorRegistro = new ControladorRegistro(ObjModelo, ObjVista);
 const ObjControladorSeleccion = new ControladorSeleccion(ObjModelo, ObjVista);
