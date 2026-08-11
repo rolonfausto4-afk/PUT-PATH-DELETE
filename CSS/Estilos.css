@@ -1,0 +1,170 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Formulario{
+    max-width: 70%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 20px;
+    gap: 20px;
+    overflow: auto;
+    align-items: center;
+}
+
+.Formulario__Titulo{
+    text-align: center;
+    color: #0f0;
+}
+
+.Formulario Label{
+    color: #0f0;
+}
+
+.Formulario__Input{
+    border-radius: 5px;
+    margin: 20px 0;
+    border: #006e00 solid 2px;
+    background-color: transparent;
+    color: #0f0;
+    outline: none;
+    padding-left: 10px;
+    width: 90%;
+    height: 20px ;
+    font-family: inherit;
+}
+
+.Formulario__Input::Placeholder{
+    color: #0f08;
+}
+
+.Input--Enviar{
+    background-color: #006e00 ;
+    border-color: #0a0;
+    height: 40px;
+    width: 50%;
+    color: #afa;
+    font-size: 15px;
+}
+.Input--Enviar:Hover{
+    background-color: #008f00;
+}
+
+/*===========================================================================================*/
+
+.Acciones{
+    color: #0f0;
+    background-color: #222;
+    margin: 0 auto;
+    max-width: 70%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+    overflow: auto;
+    border-radius: 20px;
+}
+
+.Acciones__Titulo{
+    text-align: center;
+}
+
+.Acciones Input,
+.Acciones Select,
+.Acciones Button{
+    font-family: inherit;
+}
+
+.Acciones__Metodos{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.Acciones__Metodos Input{
+    width: 50%;
+    border-radius: 5px;
+    margin: 20px 0;
+    border: #006e00 solid 2px;
+    background-color: transparent;
+    color: #0f0;
+    outline: none;
+    padding-left: 10px;
+    height: 20px ;
+    font-family: inherit;
+}
+.Acciones__Metodos Input::Placeholder{
+    color: #0f08;
+}
+
+.Acciones__Metodos Select{
+    border-radius: 5px;
+    margin: 20px 0;
+    border: #006e00 solid 2px;
+    background-color: transparent;
+    color: #0f0;
+    outline: none;
+    padding-left: 10px;
+    width: 30%;
+    height: 24px ;
+    font-family: inherit;
+}
+.Acciones__Metodos Select Option{
+    background-color: #222;
+}
+
+.Acciones__Boton{
+    margin: 20px;
+    height: 30px;
+    width: 20%;
+    border-radius: 5px;
+    border: solid 2px #0a0;
+    background-color: #006e00;
+    color: #0f0;
+}
+.Acciones__Boton:Hover{
+    background-color: #008f00;
+}
+
+.Respuesta{
+    width: 70%;
+    min-height: 0px;
+    background-color: #222;
+    border-radius: 20px;
+    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.Respuesta__Titulo{
+    color: #0f0;
+}
+
+.Respuesta__Mensaje{
+    color: #0f0;
+}
+
+.Respuesta__Json{
+    color: #afa;
+    white-space: pre-wrap; 
+}
+
+
+@media (max-width: 800px){
+    .Acciones__Metodos{
+        flex-direction: column;
+    }
+
+    .Acciones__Metodos Input,
+    .Acciones__Metodos Select{
+        width: 80%;
+    }
+}

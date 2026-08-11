@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Elegir Metodo</title>
+        <link rel="stylesheet" href="../CSS/Estilos.css">
+    </head>
+    <body>
+        <section class="Acciones">
+            <h2  class="Acciones__Titulo">Seleccion Del Metodo</h2>
+
+            <div class="Acciones__Metodos">
+                <input type="text" name="Nombre" class="Acciones__Campo" required placeholder="Nombre a Cambiar">
+                <input type="text" name="Correo" class="Acciones__Campo" required placeholder="Correo a Cambiar">
+
+                <select name="Metodo" class="Acciones__Metodo">
+                    <option value="Put">Put</option>
+                    <option value="Patch">Patch</option>
+                    <option value="Delete">Delete</option>
+                </select>
+            </div>
+
+            <Button class="Acciones__Boton">Listo</Button>
+        </section>
+
+        <section class="Respuesta">
+            <div>
+                <h2 class="Respuesta__Titulo">Respuesta</h2>
+
+                <h4 class="Respuesta__Mensaje"></h4>
+            </div>
+
+            <pre class="Respuesta__Json"></pre>
+        </section>
+        
+    </body>
+
+    <script type="module" src="../JS/App.js"></script>
+</html>
