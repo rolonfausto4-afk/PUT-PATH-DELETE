@@ -7,7 +7,7 @@ export default class ControladorRegistro{
     async ProcesarPost(){
         const InfoJson = await this.Modelo.HacerPost(this.Vista.Formulario);
 
-        this.Modelo.AplicarSesion(InfoJson);
+        this.Modelo.AplicarSesion(InfoJson.Datos);
 
         this.Vista.ResetearCampos();
 

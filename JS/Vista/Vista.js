@@ -1,5 +1,5 @@
 export default class Vista{
-    constructor(){
+    constructor(DatoActualSesion){
         this.Formulario = document.querySelector(".Formulario");
         this.SeleccionarMetodo = document.querySelector(".Acciones__Metodo");
         this.CampoSeleccionar = document.querySelectorAll(".Acciones__Campo");
@@ -7,6 +7,7 @@ export default class Vista{
         this.MensajeRespuesta = document.querySelector(".Respuesta__Mensaje");
 
         this.AccionarSeleccionar();
+        this.AplicarJson(DatoActualSesion);
     }
 
     ResetearCampos(){
@@ -25,10 +26,8 @@ export default class Vista{
 
     EliminarCampo(){
         for(let i = 0; i < this.CampoSeleccionar.length ; i++){
-                this.CampoSeleccionar[i].style.display = this.SeleccionarMetodo.value === "Delete" ? "none" : "inline";
+                this.CampoSeleccionar[1].style.display = this.SeleccionarMetodo.value !== "Put" ? "none" : "inline";
             }
-
-        if(this.SeleccionarMetodo.value === "Patch"){this.CampoSeleccionar[1].style.display = "none"; }
     }
 
     AccionarSeleccionar(){
@@ -42,6 +41,9 @@ export default class Vista{
     }
 
     AplicarJson(DatoJson){
-        this.MensajeJson.innerText = DatoJson;
+        if(this.MensajeJson){
+            this.MensajeJson.innerText = DatoJson;
+        }
+            
     }
 }
